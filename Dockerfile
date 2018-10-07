@@ -12,38 +12,47 @@
 FROM ubuntu:xenial
 
 RUN apt-get update \
-	&& apt-get upgrade -y \
-	&& apt-get install -y \
-		build-essential \
+	&& apt-get -y upgrade \
+	&& apt-get -y install \
 		bash \
 		bc \
 		build-essential \
+		bison \
+		bsdmainutils \
 		bzip2 \
+		cpio \
+		chrpath \
+		diffstat \
 		diffutils \
+		flex \
 		g++ \
 		gawk \
 		gcc \
 		git-core \
 		gperf \
 		gzip \
+		gnat \
 		libjson-perl \
 		libncurses5-dev \
+		libsdl1.2-dev \
+		libssl-dev \
 		lzop \
 		make \
 		patch \
 		patchutils \
 		perl \
 		sed \
+		swig curl \
 		tar \
 		texinfo \
 		unzip \
 		wget \
-		xfonts-utils \
-		xfonts-utils \
+		whiptail \
 		xfonts-utils \
 		xsltproc \
 		xz-utils \
 		zip \
+		zlib1g-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV HOME /root
