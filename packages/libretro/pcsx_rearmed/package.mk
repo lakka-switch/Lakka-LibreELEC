@@ -19,11 +19,11 @@
 ################################################################################
 
 PKG_NAME="pcsx_rearmed"
-PKG_VERSION="b716d51"
+PKG_VERSION="80209d1"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
-PKG_SITE="https://github.com/libretro/pcsx_rearmed_switch"
+PKG_SITE="https://github.com/libretro/pcsx_rearmed"
 PKG_GIT_URL="$PKG_SITE"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_PRIORITY="optional"
