@@ -35,21 +35,25 @@ PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 
 make_target() {
+  LARA_GLES=""
+  if [ "$OPENGLES_SUPPORT" = yes ]; then
+    LARA_GLES="GLES=1"
+  fi
+
   case $PROJECT in
     RPi|RPi2|Gamegirl|Slice|Slice3)
-      CFLAGS="$CFLAGS -I$SYSROOT_PREFIX/usr/include/interface/vcos/pthreads \
-                      -I$SYSROOT_PREFIX/usr/include/interface/vmcs_host/linux"
-      make -C src/platform/libretro GLES=1
+      CFLAGS+=" -I$SYSROOT_PREFIX/usr/include/interface/vcos/pthreads \
+                -I$SYSROOT_PREFIX/usr/include/interface/vmcs_host/linux"
+      CXXFLAGS+=" -I$SYSROOT_PREFIX/usr/include/interface/vcos/pthreads \
+                  -I$SYSROOT_PREFIX/usr/include/interface/vmcs_host/linux"
       ;;
     imx6)
-      CFLAGS="$CFLAGS -DLINUX -DEGL_API_FB"
-      CPPFLAGS="$CPPFLAGS -DLINUX -DEGL_API_FB"
-      make -C src/platform/libretro
-      ;;
-    *)
-      make -C src/platform/libretro
+      CFLAGS+=" -DLINUX -DEGL_API_FB"
+      CXXFLAGS+=" -DLINUX -DEGL_API_FB"
       ;;
   esac
+
+  make -C src/platform/libretro $LARA_GLES
 }
 
 makeinstall_target() {
