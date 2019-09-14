@@ -231,8 +231,10 @@ makeinstall_target() {
     sed -i -e "s/input_menu_toggle_gamepad_combo = 2/input_menu_toggle_gamepad_combo = 4/" $INSTALL/etc/retroarch.cfg
     sed -i -e "s/video_smooth = false/video_smooth = true/" $INSTALL/etc/retroarch.cfg
     sed -i -e "s/video_font_path =\/usr\/share\/retroarch-assets\/xmb\/monochrome\/font.ttf//" $INSTALL/etc/retroarch.cfg  
-  # Switch
-  elif [ "$PROJECT" == "Switch" ]; then
+  fi
+
+  # Switch  
+  if [ "$PROJECT" == "Switch" ]; then
     sed -i -e "s/menu_mouse_enable = false/menu_mouse_enable = true/" $INSTALL/etc/retroarch.cfg
     sed -i -e "s/input_driver = udev/input_driver = x/" $INSTALL/etc/retroarch.cfg
     
@@ -248,6 +250,10 @@ makeinstall_target() {
     # Joypad Autoconfig doesn't work as Joy-Cons VID and PID are both 0
     cat $PROJECT_DIR/Switch/joypad/Joy-Con_Rails.cfg >> $INSTALL/etc/retroarch.cfg
   fi
+  
+  # System overlay
+  mkdir -p $INSTALL/usr/share/retroarch-system
+    touch $INSTALL/usr/share/retroarch-system/.placeholder
 }
 
 post_install() {  
