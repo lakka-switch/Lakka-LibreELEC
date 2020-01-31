@@ -19,7 +19,7 @@
 ################################################################################
 
 PKG_NAME="daphne"
-PKG_VERSION="850bf24"
+PKG_VERSION="7e5cac8"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2+"

@@ -19,8 +19,7 @@
 ################################################################################
 
 PKG_NAME="mupen64plus-next"
-PKG_VERSION="b31459d"
-PKG_GIT_BRANCH="GLideN64"
+PKG_VERSION="39b555e"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"

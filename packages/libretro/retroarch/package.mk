@@ -19,7 +19,7 @@
 ################################################################################
 
 PKG_NAME="retroarch"
-PKG_VERSION="ef5f448"
+PKG_VERSION="9e25601"
 PKG_REV="11"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv3"
@@ -102,7 +102,10 @@ PKG_CONFIGURE_OPTS_TARGET="--disable-vg \
                            $RETROARCH_GL \
                            $RETROARCH_NEON \
                            --enable-zlib \
-                           --enable-freetype"
+                           --enable-freetype \
+                           --enable-translate \
+                           --enable-cdrom \
+                           --disable-discord"
               
 if [ "$PROJECT" = "Switch" ]; then
    PKG_CONFIGURE_OPTS_TARGET="$PKG_CONFIGURE_OPTS_TARGET --enable-pulse"
